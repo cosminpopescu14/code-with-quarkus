@@ -19,7 +19,7 @@ public class LoggingFilter implements ContainerRequestFilter {
     HttpServletRequest httpServletRequest;
 
     @Override
-    public void filter(ContainerRequestContext containerRequestContext) throws IOException {
+    public void filter(ContainerRequestContext containerRequestContext) {
 
         final String method = httpServletRequest.getMethod();
         final String path = uriInfo.getPath();
