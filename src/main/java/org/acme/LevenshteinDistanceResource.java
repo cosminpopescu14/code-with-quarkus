@@ -11,10 +11,10 @@ import javax.ws.rs.core.Response;
 public class LevenshteinDistanceResource {
 
     @Inject
-    private LevenshteinDistance levenshteinDistance;
+    LevenshteinDistance levenshteinDistance;
 
     @Inject
-    private org.acme.Entities.Response levenshteinResponse;
+    org.acme.Entities.Response levenshteinResponse;
 
     private Gson gson = new Gson();
 
