@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to the Levenshtein distance calculator</title>
+    <style>
+        label {
+            display: block;
+            font: 1rem 'Fira Sans', sans-serif;
+        }
+
+        input,
+        label {
+            margin: .4rem 0;
+        }
+
+        .styled {
+            border: 0;
+            line-height: 2.5;
+            padding: 0 20px;
+            font-size: 1rem;
+            text-align: center;
+            color: #fff;
+            text-shadow: 1px 1px 1px #000;
+            border-radius: 10px;
+            background-color: rgba(220, 0, 0, 1);
+            background-image: linear-gradient(to top left,
+            rgba(0, 0, 0, .2),
+            rgba(0, 0, 0, .2) 30%,
+            rgba(0, 0, 0, 0));
+            box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+            inset -2px -2px 3px rgba(0, 0, 0, .6);
+        }
+
+        .styled:hover {
+            background-color: rgba(255, 0, 0, 1);
+        }
+
+        .styled:active {
+            box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+            inset 2px 2px 3px rgba(0, 0, 0, .6);
+        }
+    </style>
+
+</head>
+<body>
+
+<label for="string1">String one:</label>
+<input type="text" id="string1" name="string1" required>
+<br/>
+<label for="string2">String two:</label>
+<input type="text" id="string2" name="string2" required>
+
+<br/>
+<br/>
+<button class="favorite styled"
+        type="button" onclick="extracted()">
+    Compute distance
+</button>
+<br/>
+<div id = "result">
+</div>
+
+<script>
+    function extracted() {
+    const url = "http://localhost:8080/levenshtein/compute"
+
+    let string1 = document.getElementById("string1").value;
+    let string2 = document.getElementById("string2").value;
+
+    fetch(`${url}/${string1}/${string2}`)
+        .then((response) => {
+            return response.json()
+        })
+        .then((result) => {
+            console.log(result)
+            document.getElementById("result").innerHTML = result["distance"]
+        })
+        .catch(error => alert(error))
+}
+</script>
+</body>
+</html>
