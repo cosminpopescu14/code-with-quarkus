@@ -1,6 +1,7 @@
 package org.acme;
 
 import io.quarkus.test.junit.QuarkusTest;
+import org.acme.service.LevenshteinDistance;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;

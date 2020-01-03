@@ -63,7 +63,7 @@
 
 <script>
     function extracted() {
-    const url = "http://localhost:8080/levenshtein/compute"
+    const url = "http://localhost:8080/levenshtein/compute";
 
     let string1 = document.getElementById("string1").value;
     let string2 = document.getElementById("string2").value;
@@ -73,7 +73,7 @@
             return response.json()
         })
         .then((result) => {
-            console.log(result)
+            console.log(result);
             document.getElementById("result").innerHTML = result["distance"]
         })
         .catch(error => alert(error))

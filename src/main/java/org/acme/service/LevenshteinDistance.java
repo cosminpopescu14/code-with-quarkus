@@ -1,4 +1,4 @@
-package org.acme;
+package org.acme.service;
 
 import javax.enterprise.context.ApplicationScoped;
 import static java.lang.Math.min;
